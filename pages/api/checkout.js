@@ -5,8 +5,8 @@ const stripe = require('stripe')(process.env.STRIPE_SK);
 
 export default async function handler(req, res) {
     if(req.method !== 'POST') {
-        req.json('should be a POST request');
-        return
+        res.json('should be a POST request');
+        return;
     }
     const {name, email, city,postalCode, streetAddress, country, cartProducts} = req.body;
     await mongooseConnect();
@@ -32,7 +32,7 @@ export default async function handler(req, res) {
     }
     
     const orderDoc = await Order.create({
-        line_items, name, email, city, postalCode, streetAddress, country, paid: false,
+        line_items, name, email, city, postalCode, streetAddress, country, paid:false,
     });
 
     const session = await stripe.checkout.sessions.create({
@@ -47,7 +47,5 @@ export default async function handler(req, res) {
     res.json({
         url: session.url,
     })
-
-
 
 }
