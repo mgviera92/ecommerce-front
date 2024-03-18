@@ -5,7 +5,7 @@ import { Product } from "@/models/Product";
 import { mongooseConnect } from "@/mongodb_adapter/mongoose";
 
 export async function getServerSideProps() {
-  const featuredProductId = '65c389e003ac242bfd654b14';
+  const featuredProductId = '65f82d2334edabaa6a271a8e';
   await mongooseConnect();
   const featuredProduct = await Product.findById(featuredProductId);
   const newProducts = await Product.find({}, null, {sort: {'_id':-1}, limit:10});
