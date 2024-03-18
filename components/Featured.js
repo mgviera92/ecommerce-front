@@ -84,7 +84,7 @@ export default function Featured({product}) {
                         </div>
                     </Column>
                     <Column>
-                        <img src="https://gaby-next-ecommerce.s3.amazonaws.com/1707313454732.jpg"></img>
+                        <img src="https://gaby-next-ecommerce.s3.amazonaws.com/1710763013379.png"></img>
                     </Column>
                 </ColumnsWrapper>
                 
